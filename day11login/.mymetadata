@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="day11login"
+  id="myeclipse.1514596534609"
+  context-root="/day11login"
+  j2ee-spec="5.0"
+  archive="day11login.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
