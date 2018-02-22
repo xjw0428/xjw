@@ -1,13 +1,14 @@
 package cn.user.service;
 
+import cn.user.dao.DaoFactory;
 import cn.user.dao.UserDao;
 import cn.user.domain.User;
 
 
 
 public class UserService {
-	//service层依赖dao层
-		private UserDao userDao=new UserDao();
+	//把具体实现类的创建隐藏到工厂中
+		private UserDao userDao=DaoFactory.getUserDao();
 		
 		public void regist(User user) throws UserException{
 			User duser =userDao.findByUsername(user.getUsername());
