@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+ "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.mapper.ItemMapper">
+        <select id="findAll" resultType="Item" >
+		 	select * from item
+		</select>
+		
+		 <select id="findByCategory" parameterType="String" resultType="Item" >
+		 	select * from item where cid=#{cid} and del=false
+		</select>
+       
+        <select id="findByBid" parameterType="String" resultType="Item" >
+		 	select * from item where bid=#{bid}
+		</select>
+		
+		  <select id="findByName" parameterType="String" resultType="Item" >
+		 	select * from item where bname like '%${value}%'
+		</select>
+		
+		 <select id="getCountByCid" parameterType="String" resultType="Integer" >
+		 	select count(*) from item where cid=#{cid}
+		</select>
+		<update id="edit" parameterType="Item">
+		    update item set bname=#{bname}, price=#{price}, image=#{image}, cid=#{category.cid} where bid=#{bid}
+		</update>
+		<insert id="add" parameterType="Item">
+		   insert into item values(#{bid},#{bname},#{price},#{image},#{category.cid},#{del})
+		</insert>
+</mapper>

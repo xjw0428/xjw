@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+ "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.mapper.CategoryMapper">
+        <select id="findAll" resultType="Category" >
+		 	select * from category
+		</select>
+		<insert id="add" parameterType="Category">
+		   insert into category values(#{cid},#{cname})
+		</insert>
+       <delete id="delete" parameterType="String">
+           delete from category where cid=#{cid}
+       </delete>
+       <select id="load" parameterType="String" resultType="Category" >
+		 	select * from category where cid=#{cid}
+		</select>
+		<update id="edit" parameterType="Category">
+		    update category set cname=#{cname} where cid=#{cid}
+		</update>
+</mapper>
